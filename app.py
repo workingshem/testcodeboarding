@@ -1,3 +1,5 @@
+from func import add, mul
+
 def main():
   print(add(1,2))
   print(add(3,10))
