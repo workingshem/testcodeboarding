@@ -1,34 +1,35 @@
 ```mermaid
 graph LR
-    Application_Entry_Point["Application Entry Point"]
-    Core_Arithmetic_Operations["Core Arithmetic Operations"]
+    Application_Entry_Point_CLI_Handler_["Application Entry Point (CLI Handler)"]
+    Arithmetic_Operations_Core["Arithmetic Operations Core"]
     Unclassified["Unclassified"]
-    Application_Entry_Point -- "invokes" --> Core_Arithmetic_Operations
-    Application_Entry_Point -- "delegates task to" --> Core_Arithmetic_Operations
+    Application_Entry_Point_CLI_Handler_ -- "Invokes / Calls" --> Arithmetic_Operations_Core
+    Arithmetic_Operations_Core -- "Returns Result To" --> Application_Entry_Point_CLI_Handler_
 ```
 
 [![CodeBoarding](https://img.shields.io/badge/Generated%20by-CodeBoarding-9cf?style=flat-square)](https://github.com/CodeBoarding/CodeBoarding)[![Demo](https://img.shields.io/badge/Try%20our-Demo-blue?style=flat-square)](https://www.codeboarding.org/diagrams)[![Contact](https://img.shields.io/badge/Contact%20us%20-%20contact@codeboarding.org-lightgrey?style=flat-square)](mailto:contact@codeboarding.org)
 
 ## Details
 
-The `testcodeboarding` project is structured around a clear separation of concerns, with an `Application Entry Point` module (`app.py`) responsible for initiating the application's execution. This entry point orchestrates calls to the `Core Arithmetic Operations` module (`func.py`), which encapsulates the fundamental business logic for performing arithmetic calculations. The `main` function within `app.py` serves as the primary control flow mechanism, invoking arithmetic functions like `add` and `mul` from `func.py` to perform its tasks. This design promotes modularity and maintainability, allowing for independent development and testing of core functionalities. The data flow is straightforward: the `Application Entry Point` calls functions within `Core Arithmetic Operations`, which then return results back to the entry point for further processing or display.
+This project implements a simple arithmetic application with a clear two-component architecture. The Application Entry Point (CLI Handler) serves as the primary control module, initiating execution and directing operations. It delegates core arithmetic tasks to the Arithmetic Operations Core, which provides fundamental mathematical functions like addition and multiplication. This design promotes modularity, allowing for independent development and testing of the application's control flow and its core computational logic.
 
-### Application Entry Point
-The primary orchestrator of the CLI tool, responsible for initiating the application and directing control flow.
-
-
-**Related Classes/Methods**:
-
-- <a href="https://github.com/workingshem/testcodeboarding/blob/mainapp.py#L3-L6" target="_blank" rel="noopener noreferrer">`main`:3-6</a>
-
-
-### Core Arithmetic Operations
-Encapsulates the fundamental business logic for performing arithmetic calculations.
+### Application Entry Point (CLI Handler)
+Manages command-line input, initializes the application, and orchestrates calls to the core arithmetic functionalities. It is the primary control component.
 
 
 **Related Classes/Methods**:
 
-- <a href="https://github.com/workingshem/testcodeboarding/blob/mainfunc.py#L1-L2" target="_blank" rel="noopener noreferrer">`add`:1-2</a>
+- `app.main`:3-6
+
+
+### Arithmetic Operations Core
+Provides the fundamental arithmetic operations (e.g., addition, multiplication) that constitute the core business logic of the application.
+
+
+**Related Classes/Methods**:
+
+- `func.add`:1-2
+- `func.mul`:4-5
 
 
 ### Unclassified
